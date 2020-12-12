@@ -36,6 +36,13 @@ class ListaContactos:
                 print("HOLA PAPA")
         self.exportaContactos()
 
+    def actualizaContacto(self, ct):
+        for Contacto in self.contactos:
+            if(Contacto.telefono == ct.telefono):
+                self.contactos.remove(Contacto)
+                self.contactos.append(ct)
+        self.exportaContactos()
+
 
     def mostrarContactos(self):
         for Contacto in self.contactos:

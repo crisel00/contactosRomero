@@ -55,11 +55,24 @@ boton_alta = Button(window, text="Añadir", command=anadirClicked)
 boton_alta.grid(column=0, row=3)
 
 def borrarClicked():
-    telefono = input_tlf.get()
+    telefono = int(input_tlf.get())
     contactos.bajaContacto(telefono)
     actualizaTexto()
 
 boton_baja = Button(window, text="Baja", command=borrarClicked)
 boton_baja.grid(column=1, row=3)
+
+def actualizarClicked():
+    telefono = int(input_tlf.get())
+    nombre = input_nombre.get()
+    apellido = input_apellido.get()
+
+    ct = Contacto(telefono, nombre, apellido)
+
+    contactos.actualizaContacto(ct)
+    actualizaTexto()
+
+boton_baja = Button(window, text="Actualizar", command=actualizarClicked)
+boton_baja.grid(column=2, row=3)
 
 window.mainloop()
